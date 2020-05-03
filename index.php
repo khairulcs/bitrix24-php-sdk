@@ -21,15 +21,15 @@ $param = array(
 
 // init lib
 $obB24App = new \Bitrix24\Bitrix24(false, $log);
-$obB24App->setApplicationScope($arParams['scope']);
-$obB24App->setApplicationId($arParams['app_id']);
-$obB24App->setApplicationSecret($arParams['app_secret']);
+$obB24App->setApplicationScope($param['scope']);
+$obB24App->setApplicationId($param['app_id']);
+$obB24App->setApplicationSecret($param['app_secret']);
  
 // set user-specific settings
-$obB24App->setDomain($arParams['domain']);
-$obB24App->setMemberId($arParams['member_id']);
-$obB24App->setAccessToken($arParams['access_token']);
-$obB24App->setRefreshToken($arParams['refresh_token']);
+$obB24App->setDomain($param['domain']);
+$obB24App->setMemberId($param['member_id']);
+$obB24App->setAccessToken($param['access_token']);
+$obB24App->setRefreshToken($param['refresh_token']);
 
 // get information about current user from bitrix24
 $obB24User = new \Bitrix24\User\User($obB24App);
