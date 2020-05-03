@@ -1,10 +1,12 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 // create a log channel
 $log = new Logger('bitrix24');
-$log->pushHandler(new StreamHandler('path/to/your.log', Logger::DEBUG));
+$log->pushHandler(new StreamHandler('log/error.log', Logger::DEBUG));
 
 
 // init lib
