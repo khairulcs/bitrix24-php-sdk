@@ -15,6 +15,13 @@ $obB24App->setRedirectUri(REDIRECT_URL);
 
 // check if code expired
 $access_token = $_GET['access_token'];
+$refresh_token = $_GET['refresh_token'];
 $obB24App->setAccessToken($access_token);
 $access_token_expired = $obB24App->isAccessTokenExpire();
+
+// set refresh token
+$obB24App->setRefreshToken($refresh_token);
+
+// renew token
+$renew_token = $obB24App->getNewAccessToken();
 var_dump($access_token_expired);
