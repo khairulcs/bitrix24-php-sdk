@@ -25,10 +25,10 @@ $path = "/oauth/authorize/";
 Header("HTTP 302 Found");
 Header("Location: " . PATH . '://' . DOMAIN . $path . "?" . http_build_query($params));
 }
-$first_access_token = $obB24App->getFirstAccessToken($_GET['code']);
+$first_access_token = $obB24App->getFirstAccessToken(@$_GET['code']);
 $access_token = $first_access_token['access_token'];
 // set access token
 echo "<pre>";
-print_r($access_token);
+print_r($first_access_token);
 echo "</pre>";
 echo "<a href='refresh-token.php?access_token=".$access_token."'>Check expired AT</a>";
