@@ -25,5 +25,8 @@ $path = "/oauth/authorize/";
 Header("HTTP 302 Found");
 Header("Location: " . PATH . '://' . DOMAIN . $path . "?" . http_build_query($params));
 }
-$access_token = $obB24App->getFirstAccessToken($_GET['code']);
-print_r($access_token);
+$first_access_token = $obB24App->getFirstAccessToken($_GET['code']);
+
+// set access token
+// $obB24App->setAccessToken($access_token);
+print_r($first_access_token);
