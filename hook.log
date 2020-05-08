@@ -556,3 +556,228 @@ Array
 )
 
 ------------------------
+
+------------------------
+2020.05.09 1:30:19
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:45:44
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:49:38
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:49:39
+TASK UPDATE
+Array
+(
+    [code] => d09bb55e0046c6030040b3220000011c504603300e48871abf5e01150b6c22abb82445
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:49:39
+Session Request
+Array
+(
+    [code] => d09bb55e0046c6030040b3220000011c504603300e48871abf5e01150b6c22abb82445
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:49:42
+Session Request
+Array
+(
+    [code] => d09bb55e0046c6030040b3220000011c504603300e48871abf5e01150b6c22abb82445
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:49:52
+TASK UPDATE
+Array
+(
+    [code] => de9bb55e0046c6030040b3220000011c504603ad59fa61282ee9a1e68a054bdcb9377a
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:49:52
+Session Request
+Array
+(
+    [code] => de9bb55e0046c6030040b3220000011c504603ad59fa61282ee9a1e68a054bdcb9377a
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:49:55
+Session Request
+Array
+(
+    [code] => de9bb55e0046c6030040b3220000011c504603ad59fa61282ee9a1e68a054bdcb9377a
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:53:01
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:53:04
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:53:05
+TASK UPDATE
+Array
+(
+    [code] => 9f9cb55e0046c6030040b3220000011c5046039d286923a772797bb25da46d9b6cd395
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:53:05
+Session Request
+Array
+(
+    [code] => 9f9cb55e0046c6030040b3220000011c5046039d286923a772797bb25da46d9b6cd395
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 1:53:08
+Session Request
+Array
+(
+    [code] => 9f9cb55e0046c6030040b3220000011c5046039d286923a772797bb25da46d9b6cd395
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 2:49:16
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 3:08:21
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 3:42:31
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 4:01:13
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 6:39:34
+TASK UPDATE
+Array
+(
+)
+
+------------------------
