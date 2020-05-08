@@ -16,7 +16,8 @@
         "ext-json": "*",
         "ext-curl": "*",
         "psr/log": "^1.0",
-        "monolog/monolog": "^1.25"
+        "monolog/monolog": "^1.25",
+        "guzzlehttp/guzzle": "^6.5"
     },
     "require-dev": {
         "jakub-onderka/php-parallel-lint": "0.9",
