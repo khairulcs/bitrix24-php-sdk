@@ -42,18 +42,19 @@ $obB24App->setAccessToken($obB24App->getFirstAccessToken($_GET['code'])['access_
 
 $obB24User = new \Bitrix24\User\User($obB24App);
 $arCurrentB24User = $obB24User->current();
-// echo "<pre>";
-// print_r($arCurrentB24User);
-// echo "</pre>";
+$specUser = $obB24User->get('name','ASC','{"ID": 284}');
+echo "<pre>";
+print_r($specUser);
+echo "</pre>";
 
 
 // $task_id = $_REQUEST['data']['FIELDS_AFTER']['ID'];
 $task_id = 16515;
 $obB24Task = new \Bitrix24\Task\Item($obB24App);
 $arCurrentB24Task = $obB24Task->getData($task_id);
-echo "<pre>";
-print_r($arCurrentB24Task);
-echo "</pre>";
+// echo "<pre>";
+// print_r($arCurrentB24Task);
+// echo "</pre>";
 
 
 // TODO: Notify user in lark
