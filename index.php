@@ -1,13 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 require_once('classes/send.php');
-const APPLICATION_ID = 'local.5ea23d7a8a67f7.95443029';
-const APPLICATION_SECRET = 'xO6V1vibY9EaytkukVum0skzxg4Kvci0LfRJgtvVaP4NqoWfjW';
-
-const PROTOCOL = 'https';
-const DOMAIN = 'ramssolgroup.bitrix24.com';
-const REDIRECT_URL = 'http://47.254.237.19/';
-const PATH = 'https';
+require_once('const/bitrix.php');
 
 // we get the code or member id
 if(empty($_GET['code']) || empty($_GET['member_id'])){
@@ -43,10 +37,6 @@ $obB24App->setAccessToken($obB24App->getFirstAccessToken($_GET['code'])['access_
 $obB24User = new \Bitrix24\User\User($obB24App);
 $arCurrentB24User = $obB24User->current();
 $specUser = $obB24User->get('name','ASC',$filter);
-echo "<pre>";
-//print_r($specUser);
-echo "</pre>";
-
 
 $task_id = $_REQUEST['data']['FIELDS_AFTER']['ID'];
 
@@ -55,9 +45,6 @@ if($task_id == "") {
 }
 $obB24Task = new \Bitrix24\Task\Item($obB24App);
 $arCurrentB24Task = $obB24Task->getData($task_id);
-//echo "<pre>";
-//print_r($arCurrentB24Task);
-//echo "</pre>";
 $responsible_id = $arCurrentB24Task['result']['RESPONSIBLE_ID'];
 
 // get user by id
@@ -66,27 +53,21 @@ $filter = array(
 );
 
 $specUser = $obB24User->get('name','ASC',$filter);
-//echo "<pre>";
-//print_r($specUser);
-//echo "</pre>";
 echo $responsible_email = $specUser['result'][0]['EMAIL'];
 
 //writeRaw($_REQUEST, 'incoming');
 // TODO: Notify user in lark
 
-
 $data = array(
     'email' => 'khairul.ariffin@feets.me',
     'msg_type' => 'text',
     'content' => array(
-         'text' => 'Hello there kidsos'
+         'text' => $responsible_id
         )
 );
 $app_access_token = "t-4b98896733af3970ecf73d47f0d96c2de29d9da4";
 $payload = json_encode($data);
-
 $funcSendMessage = new message();
-
 $send = $funcSendMessage->send($app_access_token, $payload);
 print($send);
 ?>
