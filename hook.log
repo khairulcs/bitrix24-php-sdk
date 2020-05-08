@@ -1,0 +1,558 @@
+
+------------------------
+2020.05.08 18:06:57
+incoming
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588932415
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.08 18:10:18
+incoming
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16518
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16518
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588932616
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.08 18:25:48
+incoming
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16439
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16439
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588933546
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.08 19:00:31
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.08 19:13:45
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.08 20:41:21
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.08 21:17:04
+incoming
+Array
+(
+    [a] => fetch
+    [content] => <php>die(@md5(HelloThinkCMF))</php>
+)
+
+------------------------
+
+------------------------
+2020.05.08 21:17:04
+incoming
+Array
+(
+    [XDEBUG_SESSION_START] => phpstorm
+)
+
+------------------------
+
+------------------------
+2020.05.08 21:28:26
+incoming
+Array
+(
+    [s] => /Index/\think\app/invokefunction
+    [function] => call_user_func_array
+    [vars] => Array
+        (
+            [0] => md5
+            [1] => Array
+                (
+                    [0] => HelloThinkPHP
+                )
+
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.08 22:38:48
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.08 22:38:49
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.08 22:38:49
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.08 23:28:01
+incoming
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16513
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16513
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588951679
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.08 23:31:10
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.08 23:31:13
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.08 23:31:15
+incoming
+Array
+(
+    [code] => 617bb55e0046c6030040b3220000011c504603210c2e5c4a11532e075a47dba35d3e09
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.08 23:31:28
+incoming
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:00:20
+TASK UPDATE
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588953618
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:08:23
+TASK UPDATE
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588954101
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:08:57
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:08:58
+TASK UPDATE
+Array
+(
+    [code] => 3784b55e0046c6030040b3220000011c504603656f0886cc00e7487f09c4c41586a4d9
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:15:39
+TASK UPDATE
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588954537
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:16:58
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:16:59
+TASK UPDATE
+Array
+(
+    [code] => 1986b55e0046c6030040b3220000011c504603d451066a195206b1239785642f98ae58
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:17:13
+TASK UPDATE
+Array
+(
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:17:14
+TASK UPDATE
+Array
+(
+    [code] => 2886b55e0046c6030040b3220000011c50460346ca392bb6684438bc71a636bd9a110e
+    [state] => 
+    [domain] => ramssolgroup.bitrix24.com
+    [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+    [scope] => task,tasks_extended,user,entity
+    [server_domain] => oauth.bitrix.info
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:20:11
+TASK UPDATE
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16515
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588954809
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
+
+------------------------
+2020.05.09 0:47:46
+DEBUG
+
+------------------------
+
+------------------------
+2020.05.09 0:47:52
+DEBUG
+
+------------------------
+
+------------------------
+2020.05.09 0:49:14
+DEBUG
+
+------------------------
+
+------------------------
+2020.05.09 0:49:22
+DEBUG
+
+------------------------
+
+------------------------
+2020.05.09 0:57:23
+TASK UPDATE
+Array
+(
+    [event] => ONTASKUPDATE
+    [data] => Array
+        (
+            [FIELDS_BEFORE] => Array
+                (
+                    [ID] => 16517
+                )
+
+            [FIELDS_AFTER] => Array
+                (
+                    [ID] => 16517
+                )
+
+            [IS_ACCESSIBLE_BEFORE] => undefined
+            [IS_ACCESSIBLE_AFTER] => undefined
+        )
+
+    [ts] => 1588957040
+    [auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+
+)
+
+------------------------
