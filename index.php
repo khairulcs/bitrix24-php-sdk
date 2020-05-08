@@ -28,5 +28,5 @@ Header("Location: " . PATH . '://' . DOMAIN . $path . "?" . http_build_query($pa
 $first_access_token = $obB24App->getFirstAccessToken($_GET['code']);
 $access_token = $first_access_token['access_token'];
 // set access token
-$obB24App->setAccessToken($access_token);
 print_r($access_token);
+echo "<a href='refresh-token.php?access_token=".$access_token."'>Check expired AT</a>";
