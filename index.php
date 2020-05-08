@@ -48,7 +48,7 @@ $arCurrentB24User = $obB24User->current();
 
 
 // $task_id = $_REQUEST['data']['FIELDS_AFTER']['ID'];
-$task_id = 284;
+$task_id = 16515;
 $obB24Task = new \Bitrix24\Task\Item($obB24App);
 $arCurrentB24Task = $obB24Task->getData($task_id);
 echo "<pre>";
