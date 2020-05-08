@@ -13,17 +13,9 @@ $obB24App->setApplicationSecret(APPLICATION_SECRET);
 $obB24App->setDomain(DOMAIN);
 $obB24App->setRedirectUri(REDIRECT_URL);
 
-// get code and member id
-if(!isset($_GET['code'])) {
-$params = array(
-    "response_type" => "code",
-    "client_id" => APPLICATION_ID,
-    "redirect_uri" => REDIRECT_URL,
-);
-$path = "/oauth/authorize/";
+// check if code expired
 
-Header("HTTP 302 Found");
-Header("Location: " . PATH . '://' . DOMAIN . $path . "?" . http_build_query($params));
-}
-$access_token = $obB24App->getFirstAccessToken($_GET['code']);
-print_r($access_token);
+$access_token_expired = $obB24App->isAccessTokenExpire();
+echo "<pre>";
+print_r($access_token_expired);
+echo "</pre>";
