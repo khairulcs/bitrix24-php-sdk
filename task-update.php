@@ -41,6 +41,8 @@ $task_id = $_REQUEST['data']['FIELDS_AFTER']['ID'];
 $obB24Task = new \Bitrix24\Task\Item($obB24App);
 $arCurrentB24Task = $obB24Task->getData($task_id);
 $responsible_id = $arCurrentB24Task['result']['RESPONSIBLE_ID'];
+$task_title = $arCurrentB24Task['result']['task']['title'];
+$task_desc = $arCurrentB24Task['result']['task']['description'];
 
 // log the REQUEST
 $funcWriteToLog->call($_REQUEST, 'Task Update');
@@ -55,8 +57,8 @@ $responsible_email = $responsible_user['result'][0]['EMAIL'];
 // set arrays of card
 
 $events = array(
-    'title' => 'Testing',
-    'body' => 'Testing body',
+    'title' => $task_title,
+    'body' => $task_desc,
 );
 
 $wideScreenMode = array(
@@ -91,20 +93,16 @@ $actions = array(
 
 $elements = array(
     array(
-        array(
-            'tag' => 'div',
-            'text' => $body,
-        ),
-        array(
-            'tag' => 'hr',
-        ),
-        array(
-            'tag' => 'action',
-            'actions' => array(
-                $actions,
-            ),
-        ),
+        'tag' => 'div',
+        'text' => $body,
     ),
+    array(
+        'tag' => 'hr',
+    ),
+    array(
+        'tag' => 'action',
+        'actions' => $actions
+    )
 );
 $card = array(
     'config' => $wideScreenMode,
@@ -112,11 +110,12 @@ $card = array(
     'elements' => $elements,
 );
 
+
 //writeRaw($_REQUEST, 'incoming');
 // TODO: Notify user in lark
 $data = array(
     'email' => 'khairul.ariffin@feets.me',
-    'msg_type' => 'text',
+    'msg_type' => 'interactive',
     'update_multi' => false,
     'card' => $card
 );
@@ -125,3 +124,5 @@ $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
 print($send);
+
+?>
