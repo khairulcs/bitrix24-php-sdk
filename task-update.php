@@ -5,9 +5,13 @@ require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/classes/send.php';
 require __DIR__ . '/const/bitrix.php';
 require __DIR__ . '/classes/writetolog.php';
+require __DIR__ . '/classes/readwritefile.php';
 
 $funcWriteToLog = new writetolog();
 $funcWriteToLog->call($_REQUEST, 'TASK UPDATE');
+$readwrite = new readwritefile();
+$tokens = $readwrite->read('tokens.php');
+$accessToken = $tokens['access_token'];
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
@@ -19,7 +23,7 @@ $obB24App->setApplicationId(APPLICATION_ID);
 $obB24App->setApplicationSecret(APPLICATION_SECRET);
 $obB24App->setDomain(DOMAIN);
 $obB24App->setRedirectUri(REDIRECT_URL);
-$obB24App->setAccessToken($_SESSION['access_token']);
+$obB24App->setAccessToken($accessToken);
 
 // get current user
 $obB24User = new \Bitrix24\User\User($obB24App);
