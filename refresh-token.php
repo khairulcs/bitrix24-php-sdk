@@ -2,6 +2,7 @@
 session_start();
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/const/bitrix.php';
+require __DIR__ . '/classes/readwritefile.php';
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
@@ -31,5 +32,15 @@ if(!$access_token_expired) {
 }
 $_SESSION['access_token'] = $access_token;
 $_SESSION['refresh_token'] = $refresh_token;
-echo "<a href='refresh-token.php?access_token=".$_SESSION['access_token']."&refresh_token=".$_SESSION['refresh_token']."'>Check expired AT</a>";
+
+$readwrite = new readwritefile();
+$array_tokens = array(
+    'access_token' => $access_token,
+    'refresh_token' => $refresh_token
+);
+$readwrite->write('tokens.php', $array_tokens);
+$tokens = $readwrite->read('tokens.php');
+$accessToken = $tokens['access_token'];
+$refreshToken = $tokens['refresh_token'];
+echo "<a href='refresh-token.php?access_token=".$accessToken."&refresh_token=".$refreshToken."'>Check expired AT</a>";
 var_dump($renew_token);
