@@ -45,7 +45,7 @@ $task_title = $arCurrentB24Task['result']['TITLE'];
 $task_desc = $arCurrentB24Task['result']['DESCRIPTION'];
 $task_resp_name = $arCurrentB24Task['result']['RESPONSIBLE_NAME'];
 $task_resp_last_name = $arCurrentB24Task['result']['RESPONSIBLE_LAST_NAME'];
-//$task_dateline = $arCurrentB24Task['result']['DATELINE'];
+$task_dateline = $arCurrentB24Task['result']['DATELINE'];
 
 // log the REQUEST
 $funcWriteToLog->call($_REQUEST, 'Task Update');
@@ -62,6 +62,7 @@ $responsible_email = $responsible_user['result'][0]['EMAIL'];
 $events = array(
     'title' => $task_title,
     'body' => $task_desc,
+    'dateline' => $task_dateline,
 );
 
 $wideScreenMode = array(
@@ -76,6 +77,11 @@ $title = array(
 $body = array(
     'tag' => 'plain_text',
     'content' => $events['body'],
+);
+
+$dateline = array(
+    'tag' => 'plain_text',
+    'content' => $events['dateline'],
 );
 
 $header = array(
@@ -98,7 +104,11 @@ $elements = array(
     array(
         'tag' => 'div',
         'text' => $body,
-    ),
+	),
+	array(
+        'tag' => 'div',
+        'text' => $dateline,
+	),
     array(
         'tag' => 'hr',
     ),
@@ -122,7 +132,7 @@ $data = array(
     'update_multi' => false,
     'card' => $card
 );
-$app_access_token = "t-546ba4b9811d6007629a065984e21c3e3f4911ad";
+$app_access_token = "t-26ca7b13daf3e31eac3ff47b308d7fd8c2722a0f";
 $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
