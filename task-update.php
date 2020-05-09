@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 // Start the session
 session_start();
 require __DIR__ . '/vendor/autoload.php';
