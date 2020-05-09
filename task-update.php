@@ -45,7 +45,7 @@ $task_title = $arCurrentB24Task['result']['TITLE'];
 $task_desc = $arCurrentB24Task['result']['DESCRIPTION'];
 $task_resp_name = $arCurrentB24Task['result']['RESPONSIBLE_NAME'];
 $task_resp_last_name = $arCurrentB24Task['result']['RESPONSIBLE_LAST_NAME'];
-$task_dateline = $arCurrentB24Task['result']['DATELINE'];
+//$task_dateline = $arCurrentB24Task['result']['DATELINE'];
 
 // log the REQUEST
 $funcWriteToLog->call($_REQUEST, 'Task Update');
