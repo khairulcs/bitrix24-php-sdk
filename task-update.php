@@ -118,9 +118,7 @@ $data = array(
     'email' => 'khairul.ariffin@feets.me',
     'msg_type' => 'text',
     'update_multi' => false,
-    'card' => array(
-        'text' => $responsible_email,
-    ),
+    'card' => $card
 );
 $app_access_token = "t-546ba4b9811d6007629a065984e21c3e3f4911ad";
 $payload = json_encode($data);
