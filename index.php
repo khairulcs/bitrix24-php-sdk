@@ -42,4 +42,4 @@ $tokens = $readwrite->read('tokens.php');
 echo "<pre>";
 print_r($first_access_token);
 echo "</pre>";
-echo "<a href='refresh-token.php?access_token=" . $access_token . "&refresh_token=" . $refresh_token . "'>Check expired AT</a>";
+echo "<a href='refresh-token.php'>Check expired AT</a>";

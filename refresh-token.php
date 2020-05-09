@@ -16,8 +16,12 @@ $obB24App->setDomain(DOMAIN);
 $obB24App->setRedirectUri(REDIRECT_URL);
 
 // check if code expired
-$access_token = $_GET['access_token'];
-$refresh_token = $_GET['refresh_token'];
+
+$readwrite = new readwritefile();
+$tokens = $readwrite->read('tokens.php');
+$access_token = $tokens['access_token'];
+$refresh_token = $tokens['refresh_token'];
+
 $obB24App->setAccessToken($access_token);
 $access_token_expired = $obB24App->isAccessTokenExpire();
 
@@ -25,22 +29,18 @@ $access_token_expired = $obB24App->isAccessTokenExpire();
 $obB24App->setRefreshToken($refresh_token);
 
 // renew token if expired
-if(!$access_token_expired) {
+if (!$access_token_expired) {
     $renew_token = $obB24App->getNewAccessToken();
     $access_token = $renew_token['access_token'];
     $refresh_token = $renew_token['refresh_token'];
 }
-$_SESSION['access_token'] = $access_token;
-$_SESSION['refresh_token'] = $refresh_token;
 
-$readwrite = new readwritefile();
 $array_tokens = array(
+    'code' => $tokens['code'],
+    'member_id' => $tokens['member_id'],
     'access_token' => $access_token,
-    'refresh_token' => $refresh_token
+    'refresh_token' => $refresh_token,
 );
 $readwrite->write('tokens.php', $array_tokens);
-$tokens = $readwrite->read('tokens.php');
-$accessToken = $tokens['access_token'];
-$refreshToken = $tokens['refresh_token'];
-echo "<a href='refresh-token.php?access_token=".$accessToken."&refresh_token=".$refreshToken."'>Check expired AT</a>";
+echo "<a href='refresh-token.php'>Check expired AT</a>";
 var_dump($renew_token);
