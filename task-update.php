@@ -121,7 +121,7 @@ $data = array(
         'text' => $responsible_email,
     ),
 );
-$app_access_token = "t-3b7e105da2b5a1f6a9124fb5c50c793d24f907a1";
+$app_access_token = "t-546ba4b9811d6007629a065984e21c3e3f4911ad";
 $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
