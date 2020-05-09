@@ -44,20 +44,16 @@ $actions = array(
 
 $elements = array(
     array(
-        array(
-            'tag' => 'div',
-            'text' => $body,
-        ),
-        array(
-            'tag' => 'hr',
-        ),
-        array(
-            'tag' => 'action',
-            'actions' => array(
-                $actions,
-            ),
-        ),
+        'tag' => 'div',
+        'text' => $body,
     ),
+    array(
+        'tag' => 'hr',
+    ),
+    array(
+        'tag' => 'action',
+        'actions' => $actions
+    )
 );
 $card = array(
     'config' => $wideScreenMode,
@@ -79,4 +75,7 @@ $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
 print($send);
+echo "<pre>";
+print_r($payload);
+echo "</pre>";
 ?>
