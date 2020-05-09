@@ -29,7 +29,7 @@ $body = array(
 $header = array(
     'title' => $title,
 );
-
+$task_id = 16517;
 $actions = array(
     array(
         'tag' => 'button',
@@ -66,7 +66,7 @@ $card = array(
 // TODO: Notify user in lark
 $data = array(
     'email' => 'khairul.ariffin@feets.me',
-    'msg_type' => 'text',
+    'msg_type' => 'interactive',
     'update_multi' => false,
     'card' => $card
 );
@@ -75,7 +75,7 @@ $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
 print($send);
-echo "<pre>";
-print_r($payload);
-echo "</pre>";
+// echo "<pre>";
+// print_r($payload);
+// echo "</pre>";
 ?>
