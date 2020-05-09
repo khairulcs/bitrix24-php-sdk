@@ -38,6 +38,7 @@ $arCurrentB24User = $obB24User->current();
 
 // get task item
 $task_id = $_REQUEST['data']['FIELDS_AFTER']['ID'];
+$task_id = 16517;
 $obB24Task = new \Bitrix24\Task\Item($obB24App);
 $arCurrentB24Task = $obB24Task->getData($task_id);
 $responsible_id = $arCurrentB24Task['result']['RESPONSIBLE_ID'];
@@ -46,7 +47,9 @@ $task_desc = $arCurrentB24Task['result']['DESCRIPTION'];
 $task_resp_name = $arCurrentB24Task['result']['RESPONSIBLE_NAME'];
 $task_resp_last_name = $arCurrentB24Task['result']['RESPONSIBLE_LAST_NAME'];
 $task_dateline = $arCurrentB24Task['result']['DATELINE'];
-
+echo "<pre>";
+print_r($arCurrentB24Task);
+echo "</pre>";
 // log the REQUEST
 $funcWriteToLog->call($_REQUEST, 'Task Update');
 
