@@ -11,8 +11,8 @@ $funcWriteToLog = new writetolog();
 $funcWriteToLog->call($_REQUEST, 'TASK UPDATE');
 $readwrite = new readwritefile();
 $tokens = $readwrite->read('tokens.php');
-$accessToken = $tokens['access_token'];
-$memberId = $tokens['member_id'];
+$access_token = $tokens['access_token'];
+$member_id = $tokens['member_id'];
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
@@ -24,8 +24,8 @@ $obB24App->setApplicationId(APPLICATION_ID);
 $obB24App->setApplicationSecret(APPLICATION_SECRET);
 $obB24App->setDomain(DOMAIN);
 $obB24App->setRedirectUri(REDIRECT_URL);
-$obB24App->setMemberId($memberId);
-$obB24App->setAccessToken($accessToken);
+$obB24App->setMemberId($member_id);
+$obB24App->setAccessToken($access_token);
 
 // get current user
 $obB24User = new \Bitrix24\User\User($obB24App);
