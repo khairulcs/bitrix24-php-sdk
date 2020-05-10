@@ -46,20 +46,33 @@ $task_title = $arCurrentB24Task['result']['TITLE'];
 $task_desc = $arCurrentB24Task['result']['DESCRIPTION'];
 $task_resp_name = $arCurrentB24Task['result']['RESPONSIBLE_NAME'];
 $task_resp_last_name = $arCurrentB24Task['result']['RESPONSIBLE_LAST_NAME'];
+$task_created_by = $arCurrentB24Task['result']['CREATED_BY'];
 $task_deadline = $arCurrentB24Task['result']['DEADLINE'];
 $task_group_id = $arCurrentB24Task['result']['GROUP_ID'];
+$task_status = $arCurrentB24Task['result']['STATUS'];
+
+if ($task_status == 3) {
+    $rAction = "STARTED";
+} else if ($task_status == 2) {
+    $rAction = "PAUSED";
+} else if ($task_status == 5) {
+    $rAction = "FINISHED";
+}
+
+// task config
+$header_title = "TASK UPDATE - " . $rAction;
 
 // adjust date formate
 $task_deadline = date("d-m-Y H:i:s", strtotime($task_deadline));
 
-$task_desc = str_replace("[P]","",$task_desc);
-$task_desc = str_replace("[/P]","\n",$task_desc);
+$task_desc = str_replace("[P]", "", $task_desc);
+$task_desc = str_replace("[/P]", "\n", $task_desc);
 
 $filterGroup = array(
-    'ID' => $task_group_id
+    'ID' => $task_group_id,
 );
 $workgroups = new \Bitrix24\Sonet\SonetGroup($obB24App);
-$group = $workgroups->get('DESC',$filterGroup);
+$group = $workgroups->get('DESC', $filterGroup);
 $task_group_name = $group['result'][0]['NAME'];
 
 // log the REQUEST
@@ -75,44 +88,56 @@ $responsible_email = $responsible_user['result'][0]['EMAIL'];
 // set arrays of card
 
 $events = array(
+    'header_title' => $header_title,
     'title' => $task_title,
     'body' => $task_desc,
     'deadline' => $task_deadline,
     'group_name' => $task_group_name,
-    'resp_name' => $task_resp_name
+    'resp_name' => $task_resp_name,
+    'created_by' => $task_created_by,
 );
 
 $wideScreenMode = array(
     'wide_screen' => false,
 );
 
+$header_title = array(
+    'tag' => 'plain_text',
+    'content' => $events['header_title'],
+);
+
 $title = array(
     'tag' => 'plain_text',
-    'content' => $events['title'],
+    'content' => "**Title:** " . $events['title'],
+);
+
+$created = array(
+    'tag' => 'lark_md',
+    'content' => "**Created by:** " . $events['created_by'],
 );
 
 $responsible = array(
     'tag' => 'lark_md',
-    'content' => "**Responsible:**\n".$events['resp_name'],
+    'content' => "**Responsible:** " . $events['resp_name'],
 );
 
 $project = array(
     'tag' => 'lark_md',
-    'content' => "**Project:**\n".$events['group_name'],
+    'content' => "**Project:** " . $events['group_name'],
 );
 
 $body = array(
     'tag' => 'lark_md',
-    'content' => "**Details:**\n".$events['body'],
+    'content' => "**Details:**\n" . $events['body'],
 );
 
 $deadline = array(
     'tag' => 'lark_md',
-    'content' => "**Due Date:**\n".$events['deadline'],
+    'content' => "**Due Date:**\n" . $events['deadline'],
 );
 
 $header = array(
-    'title' => $title,
+    'title' => $header_title,
 );
 
 $actions = array(
@@ -130,24 +155,28 @@ $actions = array(
 $elements = array(
     array(
         'tag' => 'div',
+        'text' => $title,
+    ),
+    array(
+        'tag' => 'div',
         'text' => $project,
-),
-array(
+    ),
+    array(
         'tag' => 'div',
         'text' => $deadline,
-),
+    ),
 
-	array(
+    array(
         'tag' => 'div',
         'text' => $body,
-	),
+    ),
     array(
         'tag' => 'hr',
     ),
     array(
         'tag' => 'action',
-        'actions' => $actions
-    )
+        'actions' => $actions,
+    ),
 );
 $card = array(
     'config' => $wideScreenMode,
@@ -155,19 +184,16 @@ $card = array(
     'elements' => $elements,
 );
 
-
 //writeRaw($_REQUEST, 'incoming');
 // TODO: Notify user in lark
 $data = array(
     'email' => 'khairul.ariffin@feets.me',
     'msg_type' => 'interactive',
     'update_multi' => false,
-    'card' => $card
+    'card' => $card,
 );
 $app_access_token = "t-f8623e9738d83d12611e84456c8999683001e845";
 $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
 print($send);
-
-?>
