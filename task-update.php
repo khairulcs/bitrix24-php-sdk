@@ -106,8 +106,18 @@ $header_title = array(
     'content' => $events['header_title'],
 );
 
+$combined_body = array(
+    'tag' => 'lark_md',
+    'content' => "**Title:** " . $events['title']."\n
+    **Project:** " . $events['group_name']."\n
+    **Created by:** " . $events['created_by']."\n
+    **Responsible:** " . $events['group_name']."\n
+    **Due Date:** " . $events['deadline']."\n
+    **Details:**\n" . $events['body'],
+);
+
 $title = array(
-    'tag' => 'plain_text',
+    'tag' => 'lark_md',
     'content' => "**Title:** " . $events['title'],
 );
 
@@ -152,6 +162,20 @@ $actions = array(
     ),
 );
 
+$elements2 = array(
+    array(
+        'tag' => 'div',
+        'text' => $combined_body,
+    ),
+    array(
+        'tag' => 'hr',
+    ),
+    array(
+        'tag' => 'action',
+        'actions' => $actions,
+    ), 
+);
+
 $elements = array(
     array(
         'tag' => 'div',
@@ -181,7 +205,7 @@ $elements = array(
 $card = array(
     'config' => $wideScreenMode,
     'header' => $header,
-    'elements' => $elements,
+    'elements' => $elements2,
 );
 
 //writeRaw($_REQUEST, 'incoming');
