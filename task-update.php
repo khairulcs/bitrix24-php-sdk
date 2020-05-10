@@ -196,4 +196,5 @@ $app_access_token = "t-f8623e9738d83d12611e84456c8999683001e845";
 $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
-print($send);
+
+$funcWriteToLog->call($send, 'SEND MESSAGE');
