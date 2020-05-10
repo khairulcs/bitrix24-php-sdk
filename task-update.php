@@ -108,8 +108,7 @@ $header_title = array(
 
 $combined_body = array(
     'tag' => 'lark_md',
-    'content' => "**Title:** " . $events['title']."\n
-    **Project:** " . $events['group_name']."\n
+    'content' => "**Title:** " . $events['title']."\n**Project:** " . $events['group_name']."\n
     **Created by:** " . $events['created_by']."\n
     **Responsible:** " . $events['group_name']."\n
     **Due Date:** " . $events['deadline']."\n
