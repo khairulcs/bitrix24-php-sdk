@@ -13,7 +13,7 @@ $url = 'http://47.254.237.19/refresh-token.php';
 $refresh_tokens = file_get_contents($url);
 
 $funcWriteToLog = new writetolog();
-$funcWriteToLog->call($_REQUEST, 'TASK UPDATE');
+$funcWriteToLog->call($_REQUEST, 'TASK ADD');
 $readwrite = new readwritefile();
 $tokens = $readwrite->read('tokens.php');
 $access_token = $tokens['access_token'];
@@ -49,18 +49,9 @@ $task_resp_last_name = $arCurrentB24Task['result']['RESPONSIBLE_LAST_NAME'];
 $task_created_by = $arCurrentB24Task['result']['CREATED_BY'];
 $task_deadline = $arCurrentB24Task['result']['DEADLINE'];
 $task_group_id = $arCurrentB24Task['result']['GROUP_ID'];
-$task_status = $arCurrentB24Task['result']['STATUS'];
-
-if ($task_status == 3) {
-    $rAction = "STARTED";
-} else if ($task_status == 2) {
-    $rAction = "PAUSED";
-} else if ($task_status == 5) {
-    $rAction = "FINISHED";
-}
 
 // task config
-$header_title = "TASK UPDATE - " . $rAction;
+$header_title = "NEW TASK CREATED";
 
 // adjust date formate
 $task_deadline = date("d-m-Y H:i:s", strtotime($task_deadline));
