@@ -37,8 +37,8 @@ $obB24User = new \Bitrix24\User\User($obB24App);
 $arCurrentB24User = $obB24User->current();
 
 // get task item
-//$task_id = $_REQUEST['data']['FIELDS_AFTER']['ID'];
-$task_id = 16517;
+$task_id = $_REQUEST['data']['FIELDS_AFTER']['ID'];
+// $task_id = 16517;
 $obB24Task = new \Bitrix24\Task\Item($obB24App);
 $arCurrentB24Task = $obB24Task->getData($task_id);
 $responsible_id = $arCurrentB24Task['result']['RESPONSIBLE_ID'];
