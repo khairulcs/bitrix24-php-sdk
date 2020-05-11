@@ -154,7 +154,7 @@ $actions = array(
             'tag' => 'plain_text',
             'content' => 'View in Bitrix24',
         ),
-        'url' => "https://ramssolgroup.bitrix24.com/company/personal/user/1/tasks/task/view/$task_id",
+        'url' => "https://ramssolgroup.bitrix24.com/company/personal/user/$responsible_id/tasks/task/view/$task_id",
         'type' => 'default',
     ),
 );
