@@ -85,8 +85,14 @@ $filter = array(
 $responsible_user = $obB24User->get('name', 'ASC', $filter);
 $responsible_email = $responsible_user['result'][0]['EMAIL'];
 
-// set arrays of card
+// get created by user
+$filter_created_by = array(
+    'ID' => $task_created_by,
+);
+$created_user = $obB24User->get('name', 'ASC', $filter_created_by);
+$created_name = $created_user['result'][0]['NAME']." ".$created_user['result'][0]['LAST_NAME'];
 
+// set arrays of card
 $events = array(
     'header_title' => $header_title,
     'title' => $task_title,
@@ -94,7 +100,7 @@ $events = array(
     'deadline' => $task_deadline,
     'group_name' => $task_group_name,
     'resp_name' => $task_resp_name,
-    'created_by' => $task_created_by,
+    'created_by' => $created_name,
 );
 
 $wideScreenMode = array(
@@ -111,7 +117,7 @@ $combined_body = array(
     'content' => "**Title:** " . $events['title'] . 
     "\n**Project:** " . $events['group_name'] . 
     "\n**Created by:** " . $events['created_by'] . 
-    "\n**Responsible:** " . $events['group_name'] . 
+    "\n**Responsible:** " . $events['resp_name'] . 
     "\n**Due Date:** " . $events['deadline'] . 
     "\n**Details:**\n" . $events['body'],
 );
