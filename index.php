@@ -40,7 +40,9 @@ $larkData = array(
 $larkPayload = json_encode($larkData);
 $funcGetLarkToken = new message();
 $larkTokens = $funcGetLarkToken->lark_auth($larkPayload);
-$lark_access_token = $larkTokens->app_access_token;
+$lark_obj = json_decode($larkTokens);
+
+$lark_access_token = $lark_obj->app_access_token;
 
 $array_tokens = array(
     'code' => $_GET['code'],
