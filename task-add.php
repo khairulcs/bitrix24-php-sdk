@@ -18,6 +18,7 @@ $readwrite = new readwritefile();
 $tokens = $readwrite->read('tokens.php');
 $access_token = $tokens['access_token'];
 $member_id = $tokens['member_id'];
+$app_access_token = $tokens['lark_access_token'];
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
@@ -75,6 +76,26 @@ $filter = array(
 );
 $responsible_user = $obB24User->get('name', 'ASC', $filter);
 $responsible_email = $responsible_user['result'][0]['EMAIL'];
+
+// die if no email in the list
+$search = $responsible_email;
+$lines = file('subscribers.txt');
+// Store true when the text is found
+$found = false;
+foreach($lines as $line)
+{
+  if(strpos($line, $search) !== false)
+  {
+    $found = true;
+    echo $line;
+  }
+}
+// If the text was not found, show a message
+if(!$found)
+{
+  $funcWriteToLog->call($found, 'SEND MESSAGE');
+  die();
+}
 
 // get created by user
 $filter_created_by = array(
@@ -213,7 +234,6 @@ $data = array(
     'update_multi' => false,
     'card' => $card,
 );
-$app_access_token = "t-03ced79055ca373600181ee2fd5e59cc776b8cb2";
 $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);

@@ -52,6 +52,8 @@ $task_deadline = $arCurrentB24Task['result']['DEADLINE'];
 $task_group_id = $arCurrentB24Task['result']['GROUP_ID'];
 $task_status = $arCurrentB24Task['result']['STATUS'];
 
+$rAction = "EDIT";
+
 if ($task_status == 3) {
     $rAction = "STARTED";
 } else if ($task_status == 2) {
@@ -65,7 +67,7 @@ $header_title = "TASK UPDATE - " . $rAction;
 
 // adjust date formate
 $task_deadline = date("d-m-Y H:i:s", strtotime($task_deadline));
-
+// replace paragraph
 $task_desc = str_replace("[P]", "", $task_desc);
 $task_desc = str_replace("[/P]", "\n", $task_desc);
 
@@ -85,6 +87,27 @@ $filter = array(
 );
 $responsible_user = $obB24User->get('name', 'ASC', $filter);
 $responsible_email = $responsible_user['result'][0]['EMAIL'];
+
+// die if no email in the list
+$search = $responsible_email;
+$lines = file('subscribers.txt');
+// Store true when the text is found
+$found = false;
+foreach($lines as $line)
+{
+  if(strpos($line, $search) !== false)
+  {
+    $found = true;
+    echo $line;
+  }
+}
+// If the text was not found, show a message
+if(!$found)
+{
+  $funcWriteToLog->call($found, 'SEND MESSAGE');
+  die();
+}
+
 
 // get created by user
 $filter_created_by = array(
