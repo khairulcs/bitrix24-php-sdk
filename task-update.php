@@ -18,7 +18,7 @@ $readwrite = new readwritefile();
 $tokens = $readwrite->read('tokens.php');
 $access_token = $tokens['access_token'];
 $member_id = $tokens['member_id'];
-$app_access_token = $tokens['app_access_token'];
+$app_access_token = $tokens['lark_access_token'];
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
