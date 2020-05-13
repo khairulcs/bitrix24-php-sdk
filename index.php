@@ -55,7 +55,7 @@ $array_tokens = array(
 $readwrite->write('tokens.php', $array_tokens);
 $tokens = $readwrite->read('tokens.php');
 // set access token
-echo "<pre>";
-print_r($first_access_token);
-echo "</pre>";
-echo "<a href='refresh-token.php'>Check expired AT</a>";
+// echo "<pre>";
+// print_r($first_access_token);
+// echo "</pre>";
+// echo "<a href='refresh-token.php'>Check expired AT</a>";

@@ -3,6 +3,7 @@ session_start();
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/const/bitrix.php';
 require __DIR__ . '/classes/readwritefile.php';
+require __DIR__ . '/classes/send.php';
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
@@ -35,11 +36,24 @@ if (!$access_token_expired) {
     $refresh_token = $renew_token['refresh_token'];
 }
 
+// GET LARK access tokens
+$larkData = array(
+    'app_id' => LARK_APP_ID,
+    'app_secret' => LARK_APP_SECRET
+);
+$larkPayload = json_encode($larkData);
+$funcGetLarkToken = new message();
+$larkTokens = $funcGetLarkToken->lark_auth($larkPayload);
+$lark_obj = json_decode($larkTokens);
+
+$lark_access_token = $lark_obj->app_access_token;
+
 $array_tokens = array(
     'code' => $tokens['code'],
     'member_id' => $tokens['member_id'],
     'access_token' => $access_token,
     'refresh_token' => $refresh_token,
+    'lark_access_token' => $lark_access_token
 );
 $readwrite->write('tokens.php', $array_tokens);
 echo "<a href='refresh-token.php'>Check expired AT</a>";
