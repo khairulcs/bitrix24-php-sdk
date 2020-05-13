@@ -18,6 +18,7 @@ $readwrite = new readwritefile();
 $tokens = $readwrite->read('tokens.php');
 $access_token = $tokens['access_token'];
 $member_id = $tokens['member_id'];
+$app_access_token = $tokens['app_access_token'];
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
@@ -222,7 +223,7 @@ $data = array(
     'update_multi' => false,
     'card' => $card,
 );
-$app_access_token = "t-03ced79055ca373600181ee2fd5e59cc776b8cb2";
+
 $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
