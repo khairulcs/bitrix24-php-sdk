@@ -2,6 +2,7 @@
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/const/bitrix.php';
 require __DIR__ . '/classes/readwritefile.php';
+require __DIR__ . '/classes/send.php';
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
@@ -30,12 +31,25 @@ $first_access_token = $obB24App->getFirstAccessToken(@$_GET['code']);
 $access_token = $first_access_token['access_token'];
 $refresh_token = $first_access_token['refresh_token'];
 $readwrite = new readwritefile();
+
+// GET LARK access tokens
+$larkData = array(
+    'app_id' => LARK_APP_ID,
+    'app_secret' => LARK_APP_SECRET
+);
+$larkPayload = json_encode($larkData);
+$funcGetLarkToken = new message();
+$larkTokens = $funcGetLarkToken->lark_auth($larkPayload);
+$lark_access_token = $larkTokens->app_access_token;
+
 $array_tokens = array(
     'code' => $_GET['code'],
     'member_id' => $_GET['member_id'],
     'access_token' => $access_token,
     'refresh_token' => $refresh_token,
+    'lark_access_token' => $lark_access_token
 );
+
 $readwrite->write('tokens.php', $array_tokens);
 $tokens = $readwrite->read('tokens.php');
 // set access token
