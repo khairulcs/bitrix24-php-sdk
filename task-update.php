@@ -8,10 +8,6 @@ require __DIR__ . '/const/bitrix.php';
 require __DIR__ . '/classes/writetolog.php';
 require __DIR__ . '/classes/readwritefile.php';
 
-// refresh token
-// $url = 'http://47.254.237.19/refresh-token.php';
-//$refresh_tokens = file_get_contents($url);
-
 $funcWriteToLog = new writetolog();
 $funcWriteToLog->call($_REQUEST, 'TASK UPDATE');
 $readwrite = new readwritefile();

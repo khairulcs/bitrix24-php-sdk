@@ -9,7 +9,7 @@ require __DIR__ . '/classes/writetolog.php';
 require __DIR__ . '/classes/readwritefile.php';
 
 $funcWriteToLog = new writetolog();
-$funcWriteToLog->call($_REQUEST, 'TASK ADD');
+$funcWriteToLog->call($_REQUEST, 'TASK REMINDER');
 $readwrite = new readwritefile();
 $tokens = $readwrite->read('tokens.php');
 $access_token = $tokens['access_token'];
@@ -33,6 +33,23 @@ $obB24App->setAccessToken($access_token);
 $obB24User = new \Bitrix24\User\User($obB24App);
 $arCurrentB24User = $obB24User->current();
 
+// get all task list
+$obB24TaskItems = new \Bitrix24\Task\Items($obB24App);
+$dateToday = date("Y-m-d");
+$arrOrder = array(
+    'ID' => 'DESC'
+);
+$arrFilter = array(
+    "<=DEADLINE" => "2020-05-15",
+    ">=DEADLINE" => "2020-05-14",
+    "<=REAL_STATUS" => 3
+);
+$arrTaskData = array("ID","TITLE","DEADLINE","STATUS","RESPONSIBLE_ID");
+$arrNavParam = array();
+$todayTaskList = $obB24TaskItems->getList($arrOrder, $arrFilter, $arrTaskData);
+echo "<pre>";
+print_r($todayTaskList);die();
+echo "</pre>";
 // get task item
 $task_id = $_REQUEST['data']['FIELDS_AFTER']['ID'];
 // $task_id = 16517;
