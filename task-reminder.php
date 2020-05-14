@@ -36,12 +36,13 @@ $arCurrentB24User = $obB24User->current();
 // get all task list
 $obB24TaskItems = new \Bitrix24\Task\Items($obB24App);
 $dateToday = date("Y-m-d");
+$dateTomorrow = date("Y-m-d",strtotime("+1 days"));
 $arrOrder = array(
     'ID' => 'DESC',
 );
 $arrFilter = array(
-    "<=DEADLINE" => "2020-05-15",
-    ">=DEADLINE" => "2020-05-14",
+    "<=DEADLINE" => $dateTomorrow,
+    ">=DEADLINE" => $dateToday,
     "<=REAL_STATUS" => 3,
 );
 $arrTaskData = array("ID", "TITLE", "DEADLINE", "STATUS", "RESPONSIBLE_ID");
@@ -116,6 +117,7 @@ foreach ($todayTaskList as $key => $value) {
 
     $header = array(
         'title' => $header_title,
+        'color' => 
     );
 
     $elements2 = array(
