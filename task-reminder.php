@@ -49,16 +49,13 @@ $arrNavParam = array();
 $todayTaskList = $obB24TaskItems->getList($arrOrder, $arrFilter, $arrTaskData);
 // log the task reminder
 $funcWriteToLog->call($todayTaskList, 'Task Reminder');
-
 $todayTaskList = $todayTaskList['result'];
-var_dump($todayTaskList);
-die();
 // task config
 $header_title = "DEADLINE REMINDER";
 $count = 0;
 foreach ($todayTaskList as $key => $value) {
     $count++;
-    if(($count%10) == 1) {
+    if (($count % 10) == 1) {
         die();
         sleep(1);
     }
