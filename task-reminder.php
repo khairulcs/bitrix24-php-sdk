@@ -116,8 +116,7 @@ foreach ($todayTaskList as $key => $value) {
     );
 
     $header = array(
-        'title' => $header_title,
-        'color' => 
+        'title' => $header_title
     );
 
     $elements2 = array(
