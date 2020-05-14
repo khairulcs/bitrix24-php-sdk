@@ -47,6 +47,7 @@ $arrFilter = array(
 $arrTaskData = array("ID", "TITLE", "DEADLINE", "STATUS", "RESPONSIBLE_ID");
 $arrNavParam = array();
 $todayTaskList = $obB24TaskItems->getList($arrOrder, $arrFilter, $arrTaskData);
+
 // log the task reminder
 $funcWriteToLog->call($todayTaskList, 'Task Reminder');
 $todayTaskList = $todayTaskList['result'];
