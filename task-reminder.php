@@ -50,7 +50,6 @@ $todayTaskList = $obB24TaskItems->getList($arrOrder, $arrFilter, $arrTaskData);
 // log the task reminder
 $funcWriteToLog->call($todayTaskList, 'Task Reminder');
 
-$responsible_id = $todayTaskList['result'][0]['RESPONSIBLE_ID'];
 $todayTaskList = $todayTaskList['result'];
 
 // task config
