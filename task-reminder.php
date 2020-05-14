@@ -52,11 +52,11 @@ $todayTaskList = $obB24TaskItems->getList($arrOrder, $arrFilter, $arrTaskData);
 $funcWriteToLog->call($todayTaskList, 'Task Reminder');
 $todayTaskList = $todayTaskList['result'];
 // task config
-$header_title = "DEADLINE REMINDER";
+$headerTitle = "DEADLINE REMINDER";
 $count = 0;
 foreach ($todayTaskList as $key => $value) {
     $count++;
-    if (($count % 10) == 0) {
+    if (($count % 3) == 0) {
         die();
         sleep(1);
     }
@@ -79,7 +79,7 @@ foreach ($todayTaskList as $key => $value) {
 
     // set arrays of card
     $events = array(
-        'header_title' => $header_title,
+        'header_title' => $headerTitle,
         'title' => $task_title,
         'body' => $task_desc,
         'deadline' => $task_deadline,
@@ -112,6 +112,10 @@ foreach ($todayTaskList as $key => $value) {
             'url' => "https://ramssolgroup.bitrix24.com/company/personal/user/$responsible_id/tasks/task/view/$task_id/",
             'type' => 'default',
         ),
+    );
+
+    $header = array(
+        'title' => $header_title,
     );
 
     $elements2 = array(
