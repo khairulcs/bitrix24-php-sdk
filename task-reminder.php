@@ -56,7 +56,7 @@ $header_title = "DEADLINE REMINDER";
 $count = 0;
 foreach ($todayTaskList as $key => $value) {
     $count++;
-    if (($count % 10) == 1) {
+    if (($count % 10) == 0) {
         die();
         sleep(1);
     }
