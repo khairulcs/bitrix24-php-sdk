@@ -42,7 +42,7 @@ $arrOrder = array(
 $arrFilter = array(
     "<=DEADLINE" => "2020-05-15",
     ">=DEADLINE" => "2020-05-14",
-    "<=REAL_STATUS" => 1,
+    "<=REAL_STATUS" => 3,
 );
 $arrTaskData = array("ID", "TITLE", "DEADLINE", "STATUS", "RESPONSIBLE_ID");
 $arrNavParam = array();
@@ -51,13 +51,15 @@ $todayTaskList = $obB24TaskItems->getList($arrOrder, $arrFilter, $arrTaskData);
 $funcWriteToLog->call($todayTaskList, 'Task Reminder');
 
 $todayTaskList = $todayTaskList['result'];
-
+var_dump($todayTaskList);
+die();
 // task config
-$header_title = "REMINDER!";
+$header_title = "DEADLINE REMINDER";
 $count = 0;
 foreach ($todayTaskList as $key => $value) {
     $count++;
     if(($count%10) == 1) {
+        die();
         sleep(1);
     }
     // get task item
@@ -75,6 +77,7 @@ foreach ($todayTaskList as $key => $value) {
     );
     $responsible_user = $obB24User->get('name', 'ASC', $filter);
     $responsible_email = $responsible_user['result'][0]['EMAIL'];
+    $responsible_name = $responsible_user['result'][0]['NAME'];
 
     // set arrays of card
     $events = array(
@@ -82,7 +85,7 @@ foreach ($todayTaskList as $key => $value) {
         'title' => $task_title,
         'body' => $task_desc,
         'deadline' => $task_deadline,
-        'resp_name' => $task_resp_name,
+        'resp_name' => $responsible_name,
     );
 
     $wideScreenMode = array(
