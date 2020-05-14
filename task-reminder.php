@@ -42,11 +42,12 @@ $arrOrder = array(
 $arrFilter = array(
     "<=DEADLINE" => "2020-05-15",
     ">=DEADLINE" => "2020-05-14",
-    "<=REAL_STATUS" => 1,
+    "<=REAL_STATUS" => 2,
 );
 $arrTaskData = array("ID", "TITLE", "DEADLINE", "STATUS", "RESPONSIBLE_ID");
 $arrNavParam = array();
 $todayTaskList = $obB24TaskItems->getList($arrOrder, $arrFilter, $arrTaskData);
+
 // log the task reminder
 $funcWriteToLog->call($todayTaskList, 'Task Reminder');
 
