@@ -10,7 +10,7 @@ require __DIR__ . '/classes/readwritefile.php';
 
 // refresh token
 // $url = 'http://47.254.237.19/refresh-token.php';
-$refresh_tokens = file_get_contents($url);
+//$refresh_tokens = file_get_contents($url);
 
 $funcWriteToLog = new writetolog();
 $funcWriteToLog->call($_REQUEST, 'TASK UPDATE');
@@ -19,6 +19,20 @@ $tokens = $readwrite->read('tokens.php');
 $access_token = $tokens['access_token'];
 $member_id = $tokens['member_id'];
 $app_access_token = $tokens['lark_access_token'];
+
+/*
+[auth] => Array
+        (
+            [domain] => ramssolgroup.bitrix24.com
+            [client_endpoint] => https://ramssolgroup.bitrix24.com/rest/
+            [server_endpoint] => https://oauth.bitrix.info/rest/
+            [member_id] => 0ee66411b1e9370b0a8adcc65abad92d
+            [application_token] => jc2km60tk6w4xqzv0zt73b6c1im8knyo
+        )
+ */
+
+//$access_token = $_REQUEST['auth']['application_token'];
+//$member_id = $_REQUEST['auth']['member_id'];
 
 $log = new \Monolog\Logger('bitrix24');
 $log->pushHandler(new \Monolog\Handler\StreamHandler('log/error.log', \Monolog\Logger::INFO));
