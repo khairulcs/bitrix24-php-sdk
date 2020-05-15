@@ -149,9 +149,23 @@ foreach ($todayTaskList as $key => $value) {
     );
     $payload = json_encode($data);
     $funcSendMessage = new message();
-    $send = $funcSendMessage->send($app_access_token, $payload);
 
-    $funcWriteToLog->call($send, 'SEND MESSAGE');
+    $search = $responsible_email;
+    $lines = file('subscribers.txt');
+    // Store true when the text is found
+    $found = false;
+    foreach ($lines as $line) {
+        if (strpos($line, $search) !== false) {
+            $found = true;
+            echo $line;
+        }
+    }
+    // If the text was not found, show a message
+    if (!$found) {
+        $funcWriteToLog->call($found, 'SEND MESSAGE TO SUBSCRIBERS');
+        $send = $funcSendMessage->send($app_access_token, $payload);
+        $funcWriteToLog->call($send, 'SEND MESSAGE');
+    }
 }
 
 // // $task_id = 16517;
@@ -159,18 +173,4 @@ foreach ($todayTaskList as $key => $value) {
 // $arCurrentB24Task = $obB24Task->getData($task_id);
 
 // // die if no email in the list
-// $search = $responsible_email;
-// $lines = file('subscribers.txt');
-// // Store true when the text is found
-// $found = false;
-// foreach ($lines as $line) {
-//     if (strpos($line, $search) !== false) {
-//         $found = true;
-//         echo $line;
-//     }
-// }
-// // If the text was not found, show a message
-// if (!$found) {
-//     $funcWriteToLog->call($found, 'SEND MESSAGE');
-//     die();
-// }
+
