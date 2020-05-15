@@ -62,6 +62,9 @@ $task_deadline = $arCurrentB24Task['result']['DEADLINE'];
 $task_group_id = $arCurrentB24Task['result']['GROUP_ID'];
 $task_status = $arCurrentB24Task['result']['STATUS'];
 
+
+$funcWriteToLog->call($task_group_id, 'GROUP ID');
+
 $rAction = "EDIT";
 
 if ($task_status == 3) {
