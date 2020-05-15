@@ -251,7 +251,7 @@ $card = array(
 //writeRaw($_REQUEST, 'incoming');
 // TODO: Notify user in lark
 $data = array(
-    'email' => 'khairul.ariffin@feets.me',
+    'email' => $responsible_email,
     'msg_type' => 'interactive',
     'update_multi' => false,
     'card' => $card,

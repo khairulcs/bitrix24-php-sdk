@@ -34,7 +34,8 @@ if ($at_bot_help_msg == ' help' || $help_msg == 'help') {
 - help
 - notify status
 - task update status
-- whois <email_address>",
+- whois <email_address>
+- subscribe <email_address>",
     );
     // send to chat group
     send_message('chat_id', $open_chat_id, $content_body, $app_access_token);
@@ -45,7 +46,7 @@ if ($at_bot_text_msg == ' notify status') {
         "text" => "What status?",
     );
     // send to personal chat
-    send_message('open_id', $user_open_id, $content_body, $app_access_token);
+    send_message('chat_id', $open_chat_id, $content_body, $app_access_token);
 }
 
 // open_id is used for direct message to user
@@ -53,7 +54,7 @@ if ($at_bot_text_msg == ' notify status') {
 
 if ($at_bot_text_msg == ' task update status') {
     $content_body = array(
-        "text" => "Check your status by typing: @Bitrix24 check my email user@email.com",
+        "text" => "No status yet",
     );
     // TODO: Notify user in lark
     $data = array(
@@ -102,6 +103,38 @@ uAvatar: $uAvatar",
     );
     // send to chat group
     send_message('open_id', $user_open_id, $content_body, $app_access_token);
+} // end whois
+
+// subscribe <email>
+$check_stripped = strip_string($at_bot_text_msg);
+$subscribe = $check_stripped[1];
+$subscribeEmail = $check_stripped[2];
+$funcWriteToLog->call($check_stripped, "SUBSCRIBE EMAIL");
+if ($subscribe == 'subscribe') {
+    $search = $subscribeEmail;
+    $lines = file('subscribers.txt');
+    // Store true when the text is found
+    $found = false;
+    foreach ($lines as $line) {
+        if (strpos($line, $search) !== false) {
+            $found = true;
+            echo $line;
+        }
+    }
+    // If the text was not found, show a message
+    if ($found) {
+        // send message
+        $content_body = array(
+		"text" => "Your email address is already in the subscriber list!"
+	);
+    } else {
+        $content_body = array(
+                "text" => "I'm sorry, the module has not been implemented yet!"
+        );
+    }
+    // send to chat group
+    send_message('open_chat_id', $open_chat_id, $content_body, $app_access_token);
+        $funcWriteToLog->call($fp, 'FP SEND MESSAGE');
 }
 
 function strip_string($message)
