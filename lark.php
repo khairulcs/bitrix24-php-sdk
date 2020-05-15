@@ -71,14 +71,18 @@ if ($at_bot_text_msg == ' task update status') {
 // whois email
 $check_stripped = strip_string($at_bot_text_msg);
 $whois = $check_stripped[1];
+$strippedEmail = $check_stripped[2];
 if ($whois == 'whois') {
     $content_body = array(
         "text" => "How do i know?",
     );
     $new_open_id = $open_id;
+    
+    // get open id by email
+    $emailInfo = get_email_info($strippedEmail, $app_access_token);
+    $new_open_id = $emailInfo->email_users->$strippedEmail->open_id;
     // send to personal chat
     $user = get_user_info($new_open_id, $app_access_token);
-
     $uName = $user->data->user_info->name;
     $uAvatar = $user->data->user_info->avatar_240;
     $uEmployeeId = $user->data->user_info->employee_id;
@@ -145,6 +149,20 @@ function get_user_info($open_id, $app_access_token)
     $user_info = $funcGetId->get_user_info($app_access_token, $payload);
     $user = json_decode($user_info);
     return $user;
+}
+
+function get_email_info($email, $app_access_token)
+{
+    // $id_type = ['chat_id', 'open_id']
+    // $chat_id = based on id_type
+    $data = array(
+        'email' => $email
+    );
+    $payload = json_encode($data);
+    $funcGetId = new message();
+    $email_info = $funcGetId->get_email_info($app_access_token, $payload);
+    $respEmail = json_decode($email_info);
+    return $respEmail;
 }
 
 echo $post;
