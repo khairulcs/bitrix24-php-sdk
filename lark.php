@@ -80,7 +80,7 @@ if ($whois == 'whois') {
     
     // get open id by email
     $emailInfo = get_email_info($strippedEmail, $app_access_token);
-    $new_open_id = $emailInfo->email_users->$strippedEmail->open_id;
+    $new_open_id = $emailInfo->data->email_users->$strippedEmail->open_id;
     // send to personal chat
     $user = get_user_info($new_open_id, $app_access_token);
     $uName = $user->data->user_info->name;
