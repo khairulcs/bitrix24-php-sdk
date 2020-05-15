@@ -152,38 +152,7 @@ $combined_body = array(
     "\n**Project:** " . $events['group_name'] . 
     "\n**Created by:** " . $events['created_by'] . 
     "\n**Responsible:** " . $events['resp_name'] . 
-    "\n**Due Date:** " . $events['deadline'] . 
-    "\n**Details:**\n" . $events['body'],
-);
-
-$title = array(
-    'tag' => 'lark_md',
-    'content' => "**Title:** " . $events['title'],
-);
-
-$created = array(
-    'tag' => 'lark_md',
-    'content' => "**Created by:** " . $events['created_by'],
-);
-
-$responsible = array(
-    'tag' => 'lark_md',
-    'content' => "**Responsible:** " . $events['resp_name'],
-);
-
-$project = array(
-    'tag' => 'lark_md',
-    'content' => "**Project:** " . $events['group_name'],
-);
-
-$body = array(
-    'tag' => 'lark_md',
-    'content' => "**Details:**\n" . $events['body'],
-);
-
-$deadline = array(
-    'tag' => 'lark_md',
-    'content' => "**Due Date:** " . $events['deadline'],
+    "\n**Due Date:** " . $events['deadline'],
 );
 
 $header = array(
@@ -216,32 +185,6 @@ $elements2 = array(
     ),
 );
 
-$elements = array(
-    array(
-        'tag' => 'div',
-        'text' => $title,
-    ),
-    array(
-        'tag' => 'div',
-        'text' => $project,
-    ),
-    array(
-        'tag' => 'div',
-        'text' => $deadline,
-    ),
-
-    array(
-        'tag' => 'div',
-        'text' => $body,
-    ),
-    array(
-        'tag' => 'hr',
-    ),
-    array(
-        'tag' => 'action',
-        'actions' => $actions,
-    ),
-);
 $card = array(
     'config' => $wideScreenMode,
     'header' => $header,
