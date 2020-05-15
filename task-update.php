@@ -208,3 +208,22 @@ $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
 
 $funcWriteToLog->call($send, 'SEND MESSAGE');
+
+
+// send to group
+if($task_group_id == 129) {
+    // TODO: Notify user in lark
+    $data = array(
+        'chat_id' => 'oc_eae0c551c9cd847eb0ef27a38ef91033',
+        'msg_type' => 'interactive',
+        'update_multi' => false,
+        'card' => $card,
+    );
+
+    $payload = json_encode($data);
+    $funcSendMessage = new message();
+    $send = $funcSendMessage->send($app_access_token, $payload);
+
+    $funcWriteToLog->call($send, 'SEND MESSAGE');
+}
+
