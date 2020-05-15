@@ -53,7 +53,7 @@ $todayTaskList = $obB24TaskItems->getList($arrOrder, $arrFilter, $arrTaskData);
 $funcWriteToLog->call($todayTaskList, 'Task Reminder');
 $todayTaskList = $todayTaskList['result'];
 // task config
-$headerTitle = "DEADLINE REMINDER";
+$headerTitle = "TASK DEADLINE REMINDER";
 $count = 0;
 foreach ($todayTaskList as $key => $value) {
     $count++;
