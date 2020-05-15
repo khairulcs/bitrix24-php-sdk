@@ -56,11 +56,6 @@ $todayTaskList = $todayTaskList['result'];
 $headerTitle = "TASK DEADLINE REMINDER";
 $count = 0;
 foreach ($todayTaskList as $key => $value) {
-    $count++;
-    if (($count % 3) == 0) {
-        die();
-        sleep(1);
-    }
     // get task item
     $task_id = $value['ID'];
     $responsible_id = $value['RESPONSIBLE_ID'];
@@ -165,6 +160,11 @@ foreach ($todayTaskList as $key => $value) {
         $funcWriteToLog->call($found, 'SEND MESSAGE TO SUBSCRIBERS');
         $send = $funcSendMessage->send($app_access_token, $payload);
         $funcWriteToLog->call($send, 'SEND MESSAGE');
+        $count++;
+        if (($count % 3) == 0) {
+            die();
+            sleep(1);
+        }
     }
 }
 
