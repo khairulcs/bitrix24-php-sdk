@@ -156,7 +156,7 @@ foreach ($todayTaskList as $key => $value) {
         }
     }
     // If the text was not found, show a message
-    if (!$found) {
+    if ($found) {
         $funcWriteToLog->call($found, 'SEND MESSAGE TO SUBSCRIBERS');
         $send = $funcSendMessage->send($app_access_token, $payload);
         $funcWriteToLog->call($send, 'SEND MESSAGE');
