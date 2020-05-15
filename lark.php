@@ -72,6 +72,8 @@ if ($at_bot_text_msg == ' task update status') {
 $check_stripped = strip_string($at_bot_text_msg);
 $whois = $check_stripped[1];
 $strippedEmail = $check_stripped[2];
+
+    $funcWriteToLog->call($check_stripped, 'STRIPPED');
 if ($whois == 'whois') {
     $content_body = array(
         "text" => "How do i know?",
@@ -80,7 +82,10 @@ if ($whois == 'whois') {
     
     // get open id by email
     $emailInfo = get_email_info($strippedEmail, $app_access_token);
-    $new_open_id = $emailInfo->data->email_users->$strippedEmail->open_id;
+    $funcWriteToLog->call($emailInfo, 'EMAIL INFO');
+    $new_open_user = $emailInfo->data->email_users->{'khairul.ariffin@feets.me'};
+    $new_open_id = $new_open_user[0]->open_id;
+    $funcWriteToLog->call($new_open_id, 'NEW OPEN ID');
     // send to personal chat
     $user = get_user_info($new_open_id, $app_access_token);
     $uName = $user->data->user_info->name;
@@ -154,9 +159,9 @@ function get_user_info($open_id, $app_access_token)
 function get_email_info($email, $app_access_token)
 {
     // $id_type = ['chat_id', 'open_id']
-    // $chat_id = based on id_type
+	// $chat_id = based on id_type
     $data = array(
-        'email' => $email
+        'emails' => $email
     );
     $payload = json_encode($data);
     $funcGetId = new message();
