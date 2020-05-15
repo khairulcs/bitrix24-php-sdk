@@ -126,38 +126,7 @@ $combined_body = array(
     "\n**Project:** " . $events['group_name'] . 
     "\n**Created by:** " . $events['created_by'] . 
     "\n**Responsible:** " . $events['resp_name'] . 
-    "\n**Due Date:** " . $events['deadline'] . 
-    "\n**Details:**\n" . $events['body'],
-);
-
-$title = array(
-    'tag' => 'lark_md',
-    'content' => "**Title:** " . $events['title'],
-);
-
-$created = array(
-    'tag' => 'lark_md',
-    'content' => "**Created by:** " . $events['created_by'],
-);
-
-$responsible = array(
-    'tag' => 'lark_md',
-    'content' => "**Responsible:** " . $events['resp_name'],
-);
-
-$project = array(
-    'tag' => 'lark_md',
-    'content' => "**Project:** " . $events['group_name'],
-);
-
-$body = array(
-    'tag' => 'lark_md',
-    'content' => "**Details:**\n" . $events['body'],
-);
-
-$deadline = array(
-    'tag' => 'lark_md',
-    'content' => "**Due Date:** " . $events['deadline'],
+    "\n**Due Date:** " . $events['deadline'],
 );
 
 $header = array(
@@ -178,6 +147,9 @@ $actions = array(
 
 $elements2 = array(
     array(
+        'tag' => 'hr',
+    ),
+    array(
         'tag' => 'div',
         'text' => $combined_body,
     ),
@@ -190,32 +162,6 @@ $elements2 = array(
     ),
 );
 
-$elements = array(
-    array(
-        'tag' => 'div',
-        'text' => $title,
-    ),
-    array(
-        'tag' => 'div',
-        'text' => $project,
-    ),
-    array(
-        'tag' => 'div',
-        'text' => $deadline,
-    ),
-
-    array(
-        'tag' => 'div',
-        'text' => $body,
-    ),
-    array(
-        'tag' => 'hr',
-    ),
-    array(
-        'tag' => 'action',
-        'actions' => $actions,
-    ),
-);
 $card = array(
     'config' => $wideScreenMode,
     'header' => $header,
@@ -233,5 +179,22 @@ $data = array(
 $payload = json_encode($data);
 $funcSendMessage = new message();
 $send = $funcSendMessage->send($app_access_token, $payload);
-
 $funcWriteToLog->call($send, 'SEND MESSAGE');
+
+
+// send to group
+if($task_group_id == 129) {
+    // TODO: Notify user in lark
+    $data = array(
+        'chat_id' => 'oc_eae0c551c9cd847eb0ef27a38ef91033',
+        'msg_type' => 'interactive',
+        'update_multi' => false,
+        'card' => $card,
+    );
+
+    $payload = json_encode($data);
+    $funcSendMessage = new message();
+    $send = $funcSendMessage->send($app_access_token, $payload);
+
+    $funcWriteToLog->call($send, 'SEND MESSAGE');
+}
