@@ -131,13 +131,13 @@ if ($subscribe == 'subscribe') {
         $content_body = array(
                 "text" => "Done!"
         );
-        $file = 'subscribers.txt';
-        // The new person to add to the file
-        $theEmail = $subscribeEmail."\n";
-        // Write the contents to the file, 
-        // using the FILE_APPEND flag to append the content to the end of the file
-        // and the LOCK_EX flag to prevent anyone else writing to the file at the same time
-        file_put_contents($file, $theEmail, FILE_APPEND | LOCK_EX);
+        // $file = 'subscribers.txt';
+        // // The new person to add to the file
+        // $theEmail = $subscribeEmail."\n";
+        // // Write the contents to the file, 
+        // // using the FILE_APPEND flag to append the content to the end of the file
+        // // and the LOCK_EX flag to prevent anyone else writing to the file at the same time
+        // file_put_contents($file, $theEmail, FILE_APPEND | LOCK_EX);
     }
     // send to chat group
     send_message('open_chat_id', $open_chat_id, $content_body, $app_access_token);
