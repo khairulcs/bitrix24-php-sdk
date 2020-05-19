@@ -67,12 +67,20 @@ $funcWriteToLog->call($task_group_id, 'GROUP ID');
 
 $rAction = "EDIT";
 
-if ($task_status == 3) {
-    $rAction = "STARTED";
+if ($task_status == 1) {
+    $rAction = "NEW";
 } else if ($task_status == 2) {
-    $rAction = "PAUSED";
+	$rAction = "PENDING";
+} else if ($task_status == 3) {
+        $rAction = "IN PROGRESS";
+} else if ($task_status == 4) {
+        $rAction = "SUPPOSEDLY COMPLETED";
 } else if ($task_status == 5) {
-    $rAction = "FINISHED";
+    $rAction = "COMPLETED";
+} else if ($task_status == 6) {
+    $rAction = "DEFERRED";
+} else if ($task_status == 7) {
+    $rAction = "DELINED";
 }
 
 // task config
@@ -102,6 +110,7 @@ $responsible_user = $obB24User->get('name', 'ASC', $filter);
 $responsible_email = $responsible_user['result'][0]['EMAIL'];
 
 // die if no email in the list
+/*
 $search = $responsible_email;
 $lines = file('subscribers.txt');
 // Store true when the text is found
@@ -120,7 +129,7 @@ if(!$found)
   $funcWriteToLog->call($found, 'SEND MESSAGE');
   die();
 }
-
+ */
 
 // get created by user
 $filter_created_by = array(

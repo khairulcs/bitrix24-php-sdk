@@ -73,9 +73,12 @@ $filter = array(
 $responsible_user = $obB24User->get('name', 'ASC', $filter);
 $responsible_email = $responsible_user['result'][0]['EMAIL'];
 
+
 // die if no email in the list
+/*
 $search = $responsible_email;
 $lines = file('subscribers.txt');
+
 // Store true when the text is found
 $found = false;
 foreach($lines as $line)
@@ -86,12 +89,14 @@ foreach($lines as $line)
     echo $line;
   }
 }
+
 // If the text was not found, show a message
 if(!$found)
 {
   $funcWriteToLog->call($found, 'SEND MESSAGE');
   die();
 }
+ */
 
 // get created by user
 $filter_created_by = array(
