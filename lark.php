@@ -12,9 +12,11 @@ $tokens = $readwrite->read('tokens.php');
 $access_token = $tokens['access_token'];
 $member_id = $tokens['member_id'];
 $app_access_token = $tokens['lark_access_token'];
-
+$text_msg = $at_bot_text_msg = $user_open_id = $open_chat_id = $open_id = "";
 // decode the post
 $arPost = json_decode($post);
+if($arPost) {
+    
 $text_msg = $arPost->event->text;
 $at_bot_text_msg = $arPost->event->text_without_at_bot;
 $user_open_id = $arPost->event->user_open_id;
@@ -23,6 +25,7 @@ $open_id = $arPost->event->open_id;
 //$text_msg =
 $funcWriteToLog = new writetolog();
 $funcWriteToLog->call($arPost, "EVENT SUBSCRIPTION");
+}
 
 // HELP
 $at_bot_help_msg = strtolower($at_bot_text_msg);
