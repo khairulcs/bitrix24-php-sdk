@@ -26,8 +26,8 @@ if (!isset($_GET['code'])) {
 
     Header("HTTP 302 Found");
     Header("Location: " . PATH . '://' . DOMAIN . $path . "?" . http_build_query($params));
-}
-$first_access_token = $obB24App->getFirstAccessToken(@$_GET['code']);
+} else {
+$first_access_token = $obB24App->getFirstAccessToken($_GET['code']);
 $access_token = $first_access_token['access_token'];
 $refresh_token = $first_access_token['refresh_token'];
 $readwrite = new readwritefile();
@@ -54,6 +54,7 @@ $array_tokens = array(
 
 $readwrite->write('tokens.php', $array_tokens);
 $tokens = $readwrite->read('tokens.php');
+}
 // set access token
 // echo "<pre>";
 // print_r($first_access_token);

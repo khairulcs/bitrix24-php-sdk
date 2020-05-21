@@ -76,11 +76,11 @@ if ($task_status == 1) {
 } else if ($task_status == 4) {
         $rAction = "SUPPOSEDLY COMPLETED";
 } else if ($task_status == 5) {
-    $rAction = "COMPLETED";
+    	$rAction = "COMPLETED";
 } else if ($task_status == 6) {
-    $rAction = "DEFERRED";
+    	$rAction = "DEFERRED";
 } else if ($task_status == 7) {
-    $rAction = "DELINED";
+    	$rAction = "DECLINED";
 }
 
 // task config
