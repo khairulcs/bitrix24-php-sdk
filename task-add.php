@@ -48,11 +48,14 @@ $task_deadline = $arCurrentB24Task['result']['DEADLINE'];
 $task_group_id = $arCurrentB24Task['result']['GROUP_ID'];
 
 // task config
-$header_title = "NEW TASK CREATED";
+$header_title = "NEW NOTIFICATION";
 
 // adjust date formate
+if ($task_deadline != null) {
 $task_deadline = date("d-m-Y H:i:s", strtotime($task_deadline));
-
+} else {
+	$task_deadline = "-";
+}
 $task_desc = str_replace("[P]", "", $task_desc);
 $task_desc = str_replace("[/P]", "\n", $task_desc);
 
@@ -62,7 +65,9 @@ $filterGroup = array(
 $workgroups = new \Bitrix24\Sonet\SonetGroup($obB24App);
 $group = $workgroups->get('DESC', $filterGroup);
 $task_group_name = $group['result'][0]['NAME'];
-
+if ($task_group_name == null) {
+	$task_group_name = "-";
+}
 // log the REQUEST
 $funcWriteToLog->call($_REQUEST, 'Task Update');
 
@@ -133,6 +138,17 @@ $combined_body = array(
     "\n**Responsible:** " . $events['resp_name'] . 
     "\n**Due Date:** " . $events['deadline'],
 );
+
+if($events['deadline'] == "-") {
+
+$combined_body = array(
+    'tag' => 'lark_md',
+    'content' => "**Title:** " . $events['title'] .
+    "\n**Project:** " . $events['group_name'] .
+    "\n**Created by:** " . $events['created_by'] .
+    "\n**Responsible:** " . $events['resp_name'],
+);
+}
 
 $header = array(
     'title' => $header_title,

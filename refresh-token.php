@@ -29,6 +29,9 @@ $access_token_expired = $obB24App->isAccessTokenExpire();
 // set refresh token
 $obB24App->setRefreshToken($refresh_token);
 
+    $renew_token = $obB24App->getNewAccessToken();
+    $access_token = $renew_token['access_token'];
+    $refresh_token = $renew_token['refresh_token'];
 // renew token if expired
 /*
 if (!$access_token_expired) {
